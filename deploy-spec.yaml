@@ -23,3 +23,9 @@ processes:
   web:
     instances: 1
 profile: dev
+backing_services:
+  - type: postgres
+    bind_as: DATABASE_URL
+
+release:
+  migrate: python -m app.migrate
